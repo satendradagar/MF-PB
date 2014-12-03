@@ -20,13 +20,13 @@
 @implementation MPDeviceConfigurationViewController
 
 - (void)awakeFromNib {
-    [super viewDidLoad];
+    [super awakeFromNib];
     MPDeviceCommunication *deviceComm = [MPDeviceCommunication sharedInstance];
 
-//    deviceComm.deviceProductId = 11894;
-//    deviceComm.deviceVendorId = 8888;//Motorola
-    deviceComm.deviceProductId = 5131;
-    deviceComm.deviceVendorId = 4817;//Huawei
+    deviceComm.deviceProductId = 11894;
+    deviceComm.deviceVendorId = 8888;//Motorola
+//    deviceComm.deviceProductId = 5131;
+//    deviceComm.deviceVendorId = 4817;//Huawei
 //
 //    deviceComm.deviceProductId = 4779;
 //    deviceComm.deviceVendorId = 1452;//Apple
@@ -94,6 +94,6 @@
 }
 
 - (IBAction)didTappedReadMessage:(id)sender {
-    [[MPDeviceCommunication sharedInstance] readMessageAsync];
+    [[MPDeviceCommunication sharedInstance] readMessage];
 }
 @end

@@ -734,8 +734,10 @@ void RawDeviceRemoved(void *refCon, io_iterator_t iterator)
     kern_return_t           kr;
     char *cCommand = (char *)[completeCommand cStringUsingEncoding:NSUTF8StringEncoding];
     cCommand = "adb get-serialno";
-//    NSData *writableData = [message dataUsingEncoding:NSUTF8StringEncoding];
-//    kr = (*interface)->WritePipe(interface, writePipe, (void *)writableData.bytes, (UInt32)writableData.length - 1);
+    
+//    completeCommand = @"adb devices";
+//    NSData *writableData = [completeCommand dataUsingEncoding:NSUTF8StringEncoding];
+//    kr = (*interface)->WritePipe(interface, writePipe, (void *)writableData.bytes, (UInt32)writableData.length );
 
     kr = (*interface)->WritePipe(interface, writePipe, cCommand, (UInt32)strlen(cCommand) - 1);
         if (kr != kIOReturnSuccess)
@@ -792,6 +794,8 @@ void RawDeviceRemoved(void *refCon, io_iterator_t iterator)
 //    UInt32 readSize = 64;
 //    //read data
 //    kr = (*interface)->ReadPipe(interface, readPipe, data.mutableBytes, &readSize);
+//    NSString *message = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//    NSLog(@"Read message = %@",message);
 //
     if (kr != kIOReturnSuccess)
     {
