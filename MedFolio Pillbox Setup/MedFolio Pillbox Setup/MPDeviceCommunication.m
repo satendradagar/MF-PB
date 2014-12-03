@@ -733,7 +733,7 @@ void RawDeviceRemoved(void *refCon, io_iterator_t iterator)
     NSString *completeCommand = [NSString stringWithFormat:@"%c%c%c%d%@%c",2,10,11,(int)message.length,message,3];/*STX,A,B,Len,Payload,ETX*/
     kern_return_t           kr;
     char *cCommand = (char *)[completeCommand cStringUsingEncoding:NSUTF8StringEncoding];
-    cCommand = "adb get-serialno";
+//    cCommand = "adb get-serialno";
     
 //    completeCommand = @"adb devices";
 //    NSData *writableData = [completeCommand dataUsingEncoding:NSUTF8StringEncoding];
@@ -789,11 +789,13 @@ void RawDeviceRemoved(void *refCon, io_iterator_t iterator)
     //for NULL termination
     kr = (*interface)->ReadPipe(interface, readPipe, gBuffer2,
                                 &numBytesRead);
-//    
+//
 //    NSMutableData* data = [NSMutableData dataWithLength:64];
 //    UInt32 readSize = 64;
 //    //read data
 //    kr = (*interface)->ReadPipe(interface, readPipe, data.mutableBytes, &readSize);
+//   [data setLength:readSize];
+
 //    NSString *message = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 //    NSLog(@"Read message = %@",message);
 //
