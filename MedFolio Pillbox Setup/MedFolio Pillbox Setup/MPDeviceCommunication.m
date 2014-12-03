@@ -748,9 +748,9 @@ void RawDeviceRemoved(void *refCon, io_iterator_t iterator)
             (void) (*interface)->Release(interface);
         }
 
-        printf("Wrote \"%s\" (%d bytes) to bulk endpoint\n", [completeCommand cStringUsingEncoding:NSUTF8StringEncoding],
-               (UInt32) strlen([completeCommand cStringUsingEncoding:NSUTF8StringEncoding]));
-        [DeviceCommunicaton deviceCommunicationDidWriteMessage:[NSString stringWithFormat:@"Wrote \"%s\" (%d bytes) to bulk endpoint\n", [completeCommand cStringUsingEncoding:NSUTF8StringEncoding],(UInt32) strlen([completeCommand cStringUsingEncoding:NSUTF8StringEncoding])]];
+        printf("Wrote \"%s\" (%d bytes) to bulk endpoint\n", cCommand,
+               (UInt32) strlen(cCommand));
+        [DeviceCommunicaton deviceCommunicationDidWriteMessage:[NSString stringWithFormat:@"Wrote \"%s\" (%d bytes) to bulk endpoint\n", cCommand,(UInt32) strlen(cCommand)]];
     
 }
 
